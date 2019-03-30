@@ -41,7 +41,7 @@ if [[ $is_enforced != "Disabled" ]]; then
   setenforce 0
 fi
 
-yum install -y kubelet-$KUBERNETES_VERSION kubeadm-$KUBERNETES_VERSION kubernetes-cni
+yum install -y kubelet-$KUBERNETES_VERSION kubeadm-$KUBERNETES_VERSION kubernetes-cni-0.6.0-0.x86_64
 
 # Fix kubelet configuration
 sed -i 's/--cgroup-driver=systemd/--cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
