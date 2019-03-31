@@ -20,6 +20,9 @@ FULL_HOSTNAME="$(curl -s http://169.254.169.254/latest/meta-data/hostname)"
 # Make DNS lowercase
 DNS_NAME=$(echo "$DNS_NAME" | tr 'A-Z' 'a-z')
 
+# Set ssh login text
+echo "KUBERNETES WORKER" | sudo tee /etc/motd
+
 # Install docker
 yum install -y yum-utils device-mapper-persistent-data lvm2 docker
 

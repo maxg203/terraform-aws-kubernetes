@@ -27,6 +27,9 @@ FULL_HOSTNAME="$(curl -s http://169.254.169.254/latest/meta-data/hostname)"
 # Make DNS lowercase
 DNS_NAME=$(echo "$DNS_NAME" | tr 'A-Z' 'a-z')
 
+# Set ssh login text
+echo "KUBERNETES MASTER" | sudo tee /etc/motd
+
 # Install AWS CLI client
 yum install -y epel-release
 yum install -y python2-pip
