@@ -12,7 +12,7 @@ provider "aws" {
 #####
 
 module "kubeadm-token" {
-  source = "scholzj/kubeadm-token/random"
+  source = "github.com/maxg203/terraform-random-kubeadm-token"
 }
 
 #####
@@ -355,7 +355,7 @@ resource "aws_launch_configuration" "nodes" {
 
 resource "aws_autoscaling_group" "nodes" {
   vpc_zone_identifier = ["${var.worker_subnet_ids}"]
-  
+
   name                      = "${var.cluster_name}-nodes"
   max_size                  = "${var.max_worker_count}"
   min_size                  = "${var.min_worker_count}"
@@ -378,7 +378,7 @@ resource "aws_autoscaling_group" "nodes" {
 
   lifecycle {
     ignore_changes = ["desired_capacity"]
-  }  
+  }
 }
 
 #####
