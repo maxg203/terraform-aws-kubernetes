@@ -25,7 +25,7 @@
                 "autoscaling:SetDesiredCapacity",
                 "autoscaling:TerminateInstanceInAutoScalingGroup",
                 "autoscaling:DescribeLaunchConfigurations"
-                ],
+            ],
             "Resource": "*"
         }
     ]
